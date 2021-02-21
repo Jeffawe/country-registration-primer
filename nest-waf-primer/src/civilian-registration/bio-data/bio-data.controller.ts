@@ -6,6 +6,7 @@ import {
   Put,
   Param,
   Delete,
+  Render,
 } from '@nestjs/common';
 import { BioDataService } from './bio-data.service';
 import { CreateBioDatumDto } from './dto/create-bio-datum.dto';
@@ -42,4 +43,9 @@ export class BioDataController {
   remove(@Param('id') id: string) {
     return this.bioDataService.remove(+id);
   }
+
+  @Get('create')
+  @Render('Citizens/create-citizen.html')
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  createForm() {}
 }

@@ -1,4 +1,11 @@
-import { PrimaryGeneratedColumn, Column, Entity } from 'typeorm';
+import { LinkedIdentity } from 'src/civilian-registration/linked-identity/entities/linked-identity.entity';
+import {
+  PrimaryGeneratedColumn,
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+} from 'typeorm';
 
 @Entity()
 export class BioData {
@@ -12,7 +19,7 @@ export class BioData {
   middleName: string;
 
   @Column()
-  lastName: string;
+  lastNamez: string;
 
   @Column({ nullable: true })
   nationality: string;
@@ -34,4 +41,15 @@ export class BioData {
 
   @Column()
   profession: string;
+
+  @Column({ default: true })
+  isActive: boolean;
+
+  @JoinColumn()
+  @OneToOne(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    (type) => LinkedIdentity,
+    (linkedIdentity) => linkedIdentity.biodata,
+  )
+  linkedIdentity: LinkedIdentity;
 }
