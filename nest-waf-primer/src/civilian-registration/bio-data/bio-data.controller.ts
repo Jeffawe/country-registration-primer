@@ -16,6 +16,11 @@ import { UpdateBioDatumDto } from './dto/update-bio-datum.dto';
 export class BioDataController {
   constructor(private readonly bioDataService: BioDataService) {}
 
+  @Get('create')
+  @Render('citizens/create-citizen.html')
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  createForm() {}
+
   @Post()
   create(@Body() createBioDatumDto: CreateBioDatumDto) {
     return this.bioDataService.create(createBioDatumDto);
@@ -43,9 +48,4 @@ export class BioDataController {
   remove(@Param('id') id: string) {
     return this.bioDataService.remove(+id);
   }
-
-  @Get('create')
-  @Render('Citizens/create-citizen.html')
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  createForm() {}
 }
