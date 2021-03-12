@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="notification">
+
+        </div>
+        <div class="navbar">
+            <a class="fas fa-plus navbar-item"  href="/" >Home</a>
+            <a class="fas fa-plus navbar-item"  href="/bio-data/create" >Add New User</a>
+        </div>
+        <table class="table is-striped is-hoverable ">
+            <div class="title">{{ title }}</div>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Nationality</th>
+                    <th>Country Of Birth</th>
+                    <th>State of Birth</th>
+                    <th>Town Of Birth</th>
+                    <th>Residential Address</th>
+                    <th>Profession</th>
+                    <th>NIN</th>
+                    <th>BVN</th>
+                    <th>Mobile Number</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in bio-data %}
+                        <tr>
+                            <td>{{user.firstname}}</td>
+                            <td>{{user.lastname}}</td>
+                            <td>{{user.date_of_birth}}</td>
+                            <td>{{user.countryofbirth}}</td>
+                            <td>{{user.stateofbirth}}</td>
+                            <td>{{user.townofbirth}}</td>
+                            <td>{{user.nationality}}</td>
+                            <td>{{user.residential_address}}</td>
+                            <td>{{user.profession}}</td>
+                            <td>{{user.nin}}</td>
+                            <td>{{user.bvn}}</td>
+                            <td>{{user.mobilenumber}}</td>
+                            <td><a class="button" href="/users/detail/{{user.id}}/">View</a></td>
+                            <td><a class="button" href="/users/edit/{{user.id}}/">Edit</a></td>
+                            <td><a class="button" href="/users/delete/{{user.id}}/" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+{% endblock body %}
+

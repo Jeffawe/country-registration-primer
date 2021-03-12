@@ -17,9 +17,17 @@ export class BioDataController {
   constructor(private readonly bioDataService: BioDataService) {}
 
   @Get('create')
-  @Render('citizens/create-citizen.html')
+  @Render('Citizens/create-citizen.html')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   createForm() {}
+
+  
+  /**@Get('list')
+  @Render('Citizens/list.html')
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  getHome(): {} {
+    return this.bioDataService.getList();
+  }*/
 
   @Post()
   create(@Body() createBioDatumDto: CreateBioDatumDto) {

@@ -12,13 +12,13 @@ export class BioData {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ nullable: true })
   firstName: string;
 
   @Column({ nullable: true })
   middleName: string;
 
-  @Column()
+  @Column({ nullable: true })
   lastNamez: string;
 
   @Column({ nullable: true })
@@ -30,16 +30,16 @@ export class BioData {
   @Column({ nullable: true })
   countryOfBirth: string;
 
-  @Column({ default: true })
+  @Column({ nullable: true })
   stateOfBirth: boolean;
 
-  @Column()
+  @Column({ nullable: true })
   townOfBirth: string;
 
-  @Column()
+  @Column({ nullable: true })
   residentialaddress: string;
 
-  @Column()
+  @Column({ nullable: true })
   profession: string;
 
   @Column({ default: true })

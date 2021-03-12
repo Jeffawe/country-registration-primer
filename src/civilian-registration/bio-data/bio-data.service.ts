@@ -39,4 +39,8 @@ export class BioDataService {
     return await this.BioDataRepository.delete(id);
     //return `This action removes a #${id} bioDatum`;
   }
+
+  /**getList(): {} {
+    return {title: 'List of citizens'};
+  }*/
 }

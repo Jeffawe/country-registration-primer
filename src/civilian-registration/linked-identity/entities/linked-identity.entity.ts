@@ -12,13 +12,13 @@ export class LinkedIdentity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ nullable: true })
   NIN: number;
 
-  @Column()
+  @Column({ nullable: true })
   BVN: number;
 
-  @Column()
+  @Column({ nullable: true })
   mobileNumbers: number;
 
   @JoinColumn()
